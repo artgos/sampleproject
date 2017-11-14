@@ -19,6 +19,6 @@ deploy:
   provider: releases
   api_key:
     secure: tulWglIHYyz+7jR7qRgdn7hLMU8v5RYuO5uuo9Zk0QuG7EPOXqeLf7PlKgEJj6L2hKjB2zUOO7j1j3IFe8H+kf7L1yAMCFU0/NjVpNgaOam2MtLZr44tzGTwQKN09I2w7CGR7wb4dskFvUFx2Yq4Whk/cavZE6kF4rKmLvOnBCEPxBabIA+s8a9uEsvbiposDe+XlwphjQHGsoW3f1G3rvaKaedm51wOqnixlT0jGsoUl6VbREeXZpHzWkjJOFDLTWWCV1XKRAcxQUxO3XDloAJhgdaoG+TXfUiH7rCBeV/aQRyuqJMRQ1LOga8uH9WQivFTxoyoIWP8YOW4q390bbVn1EgI5LRlDDmcTD+FsT1RHINDWOiwxt1YeAlG9+4LFUh5rn4rWFxg7s9hVjZ2N5uNjSTOo5VRqp200n88JgbY6CiymndxqY4aFCNpF6GMxByn1Iy8RkXsuK5XK590bnH2cq0zY9cb+3MZKwhVlYtMuJg7tyz8UwTsIXhB/rkDRhgwsjdRmRd7uNPOMQo9p2CkxgX0OKSHSoUmNiaVRKXD85ClifL4dwvb5iWUFE9ZYCLinJ+2xzANeqjc78Jeegiw3RIzwxuQ5FdtezJSSTb3Famgl9a1fwrd7woGGAoWshKv5CtRJjRiY82qfLtGWGjpyOPqn6zSj8Am1lIJ2rE=
-  file: dist/sample-1.2.0.tar.gz
+  file: ./dist/sample-1.2.0.tar.gz
   on:
     repo: artzag/sampleproject
