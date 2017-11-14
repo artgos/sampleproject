@@ -6,11 +6,7 @@ env:
     secure: l6OjkNKuOeEoaKAtUBXL3k6UMDvlhkl+FS7Q0CD5E17aXzbxDAZ/k16HRK597sMYXyvkthuNp/zxNW1CmuD+9RgvLP5ONOvH9zS05K5+/TFoAAbt+/eJIuYNN1NR+3pEbnkHSTItip2A8T4uAEj0FLmLTKGDZzzX3pEIkOUjLJlm86xBm4kmR4OMZxgMeXHXrmhKs8qJ9f68KNsRjkYXisb0St9QPbJnbnk/38uEaLXIPMevWhgHlDO8a3UX+wXtUfU7ebBRLPCsbI/q3Fu4SXsLXBLnm4ugexF9rLX8251l7Uvj57UpDwrgS1a060nHiGi+c3FdjhWbPnylEjXwmj34K3jIOdjThI5Rh9VI11tUOgGgIc22SMnA5qcXfTVAs3jxfLaeIrHHic8ob7F9/Puv6DEIp8WYEl0JYRoVYErycxB87Ll6Dte8bUc8h3TlkzkfsaH1kdctfKpGYC2fxLI4qWEC5m+ZEddXODlwCsTGqfENg3qka/oJK3AqCDgvea0ZTwxKyzg71HFrp3j1am91mUwQrtYNSsOznZ+ONpvXIVb7iDsuhUrtSmWTkp8sLbyxOjB912lZk2eAsEttxIMLiftx0H8UDuJKFG9anGgUdpSShW9OdT5bN7meDK8tVh4NAok7PmjLZLBoUE3Nnp+YhZJXi1SwklQigXXj4vg=
 branches:
   only:
-  - travis
-install:
-  - pip install -r requirements.txt
-script:
-  - python mko_cms/manage.py test
+  - master
 after_success:
   - . scripts/git_tag.sh
 before_deploy:
@@ -22,6 +18,6 @@ deploy:
   file: dist/sample-1.2.0.tar.gz
   skip_cleanup: true
   on:
-    branch: travis
+    branch: master
     repo: artzag/sampleproject
     tags: false
