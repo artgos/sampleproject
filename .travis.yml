@@ -17,7 +17,7 @@ after_success:
 deploy:
   provider: releases
     api_key:
-    - secure: ${GH_TOKEN}
+    secure: ${GH_TOKEN}
 
   file: dist/sample-1.2.0.tar.gz
   skip_cleanup: true
