@@ -3,6 +3,8 @@
 setup_git() {
   git config --global user.email "azagozdzinski@gmail.com"
   git config --global user.name "artzag"
+  echo ${GH_TOKEN}
+  echo $GH_TOKEN
 }
 
 commit_website_files() {
