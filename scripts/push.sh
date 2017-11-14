@@ -7,20 +7,16 @@ setup_git() {
   echo $GH_TOKEN
 }
 
-commit_website_files() {
-  git checkout -b gh-pages
-  git add . *.html
-  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
-}
-
 tag() {
+    YEAR=$(date +"%Y")
+    MONTH=$(date +"%m")
     export GIT_TAG=$TRAVIS_BRANCH-V2.$YEAR-$MONTH.$TRAVIS_BUILD_NUMBER
     git fetch --tags
     msg="Tag Generated from TravisCI for build $TRAVIS_BUILD_NUMBER"
     echo $msg
     echo $GIT_TAG
     #if git tag $GIT_TAG -a -m "$msg" 2>/dev/null; then
-    git tag $GIT_TAG -a -m "Tag Generated from TravisCI for build $TRAVIS_BUILD_NUMBER"
+    git tag $GIT_TAG -a -m "$msg"
 }
 
 upload_files() {
@@ -31,5 +27,4 @@ upload_files() {
 
 setup_git
 tag
-#commit_website_files
 upload_files
