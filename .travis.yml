@@ -8,7 +8,7 @@ branches:
   only:
   - master
 script:
-- python tests/test_simple.py
+- python setup.py sdist
 after_script:
 - git config credential.helper "store --file=.git/credentials"
 - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
