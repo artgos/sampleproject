@@ -4,18 +4,18 @@ python:
 env:
   global:
   - secure: al4uDvLqTIBhc1cJITSg7bKwebarrmo3OoU/5kBhxuN3ZHhSetZNGeNndoKIzdXApo6pfZuDG4B7DWuddppCBPKkDR7Q/eOmG5net35l/ZW9brcv1/EOQOY2vDG+nwoz6peOyOIR8ldBlTWjVEcLPZjXpPcbyZARhQNL9MNOuwhPVF53QZ0VD0YtSkilgDwxnZH7+GG38oMxr1J3/rojYfHON2yXwSSAP0zYijYj7q2lh1MimaB0ly97pC7zFyBYw4XdapwQ1ESwaifTHTRBv2S4OfB/lw2thXZZaNhinYdyHxuMmykWpB7Qy90XR9zUQA4C3Ict2AWzmGD4Vh753YGndKUuM14/bqzuqgW3/R1t8IqPE6wbrLGxL+m7Z7pc4Jo+6NnW3OkwonTvxGJkf50IypVA8FKeINBfa/LhWYN5T8aHo+GquVaAvypN3IBL7m++VWzBb1Xch+/oqAGg2JTtVDDfXMwhNbjpNrqy9YK/8OTzKonXubMkUKjen0jna83sNYQYVaFb2aE0UsAgiYun9yWB35Cpp8o3aeGwHtkOayAsQ4fEnqf22z2QQqUmqYdaXFR4W0K5/Ht3BADZxndBZVnhA6ejV5JLrxQ6sDN5jV6cR2mKYi1Fkmdr06cUVxpb0i4tWB0Z8CDlRmmqbGA2CypeFgyYqTyFEqk6rZY=
-
 branches:
   only:
   - master
 script:
 - python tests/test_simple.py
+after_script:
+- git config credential.helper "store --file=.git/credentials"
+- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 after_success:
 - ". scripts/push.sh"
 deploy:
   provider: releases
-  api_key:
-  - secure: al4uDvLqTIBhc1cJITSg7bKwebarrmo3OoU/5kBhxuN3ZHhSetZNGeNndoKIzdXApo6pfZuDG4B7DWuddppCBPKkDR7Q/eOmG5net35l/ZW9brcv1/EOQOY2vDG+nwoz6peOyOIR8ldBlTWjVEcLPZjXpPcbyZARhQNL9MNOuwhPVF53QZ0VD0YtSkilgDwxnZH7+GG38oMxr1J3/rojYfHON2yXwSSAP0zYijYj7q2lh1MimaB0ly97pC7zFyBYw4XdapwQ1ESwaifTHTRBv2S4OfB/lw2thXZZaNhinYdyHxuMmykWpB7Qy90XR9zUQA4C3Ict2AWzmGD4Vh753YGndKUuM14/bqzuqgW3/R1t8IqPE6wbrLGxL+m7Z7pc4Jo+6NnW3OkwonTvxGJkf50IypVA8FKeINBfa/LhWYN5T8aHo+GquVaAvypN3IBL7m++VWzBb1Xch+/oqAGg2JTtVDDfXMwhNbjpNrqy9YK/8OTzKonXubMkUKjen0jna83sNYQYVaFb2aE0UsAgiYun9yWB35Cpp8o3aeGwHtkOayAsQ4fEnqf22z2QQqUmqYdaXFR4W0K5/Ht3BADZxndBZVnhA6ejV5JLrxQ6sDN5jV6cR2mKYi1Fkmdr06cUVxpb0i4tWB0Z8CDlRmmqbGA2CypeFgyYqTyFEqk6rZY=
   file: dist/sample-1.2.0.tar.gz
   skip_cleanup: true
   on:
