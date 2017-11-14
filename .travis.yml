@@ -10,9 +10,8 @@ branches:
 script:
   - python tests/test_simple.py
 after_success:
-  - . scripts/git_tag.sh
-before_deploy:
-  - . scripts/git_tag.sh
+  - . scripts/push.sh
+
 deploy:
   provider: releases
   api_key:
