@@ -11,6 +11,8 @@ script:
 - pip install -r requirements.txt
 before_deploy:
 - python setup.py sdist
+- git config credential.helper "store --file=.git/credentials"
+- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 - ". scripts/git_tag.sh"
 deploy:
   provider: releases
