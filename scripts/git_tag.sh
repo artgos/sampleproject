@@ -15,14 +15,11 @@ tag() {
     msg="Tag Generated from TravisCI on branch $TRAVIS_BRANCH for build $TRAVIS_BUILD_NUMBER ($YEAR-$MONTH)"
     echo $msg
     echo $GIT_TAG
-    #if git tag $GIT_TAG -a -m "$msg" 2>/dev/null; then
-    git tag $GIT_TAG -a -m "$msg"
+    git tag $GIT_TAG -a -f -m "$msg"
 }
 
 upload_files() {
-  #git remote add origin-pages https://${GH_TOKEN}@github.com/artzag/sampleproject.git > /dev/null 2>&1
-  #git push --quiet --set-upstream origin master
-  git push origin master && git push origin master --tags
+  git push origin $TRAVIS_BRANCH && git push origin $TRAVIS_BRANCH --tags
 }
 
 setup_git
